@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiService {
 
-    private static String BASEURL = "https://u73olh7vwg.execute-api.ap-northeast-2.amazonaws.com/stage2";
+    private static String BASEURL = "https://u73olh7vwg.execute-api.ap-northeast-2.amazonaws.com/stage2/";
     private static HttpLoggingInterceptor loggingInterceptor = null;
     private static Retrofit retrofit = null;
     private static OkHttpClient client = null;

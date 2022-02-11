@@ -17,7 +17,7 @@ public class Location {
     private String country;
 
     @SerializedName("postcode")
-    private Integer postcode;
+    private String postcode;
 
     @SerializedName("coordinates")
     private Coordinates coordinates;
@@ -41,7 +41,7 @@ public class Location {
         return country;
     }
 
-    public Integer getPostcode(){
+    public String getPostcode(){
         return postcode;
     }
 

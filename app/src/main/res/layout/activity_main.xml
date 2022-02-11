@@ -13,6 +13,14 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/btn_allBook"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="right"
+            android:text="All Book"
+            android:textSize="20dp"
+            android:textColor="#000"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -25,7 +33,6 @@
                 android:layout_height="wrap_content"
                 android:hint="search.." />
         </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_employee"
             android:layout_width="match_parent"
@@ -33,4 +40,5 @@
             android:layout_marginTop="24dp"
             tools:listitem="@layout/item_employee" />
     </LinearLayout>
+
 </LinearLayout>

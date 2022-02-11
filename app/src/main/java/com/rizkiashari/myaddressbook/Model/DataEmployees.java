@@ -90,4 +90,8 @@ public class DataEmployees {
     public String getNat(){
         return nat;
     }
+
+    public Name getName(){
+        return name;
+    }
 }
