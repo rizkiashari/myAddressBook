@@ -1,10 +1,12 @@
-package com.rizkiashari.myaddressbook;
+package com.rizkiashari.myaddressbook.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.rizkiashari.myaddressbook.R;
+
+public class Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
