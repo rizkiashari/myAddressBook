@@ -90,13 +90,12 @@ public class DetailEmployee extends AppCompatActivity {
 
         String dateFormatResult = format.format(date.getTime());
         String [] memberSince = dateFormatResult.split("-");
-        String day = memberSince[0];
         String month = memberSince[1];
         String year = memberSince[2];
 
         binding.detailEmployeeDate.setText("Member Since: "+ month + " "+ year);
-        binding.detailEmployeeName.setText(dataEmployees.getName().getFirst() + " " + dataEmployees.getName().getLast());
         binding.detailEmployeeCity.setText("City: " + dataEmployees.getLocation().getCity() + ", "+ dataEmployees.getLocation().getCountry());
+        binding.detailEmployeeName.setText(dataEmployees.getName().getFirst() + " " + dataEmployees.getName().getLast());
         binding.detailEmployeePhone.setText("Phone: "+ dataEmployees.getPhone());
         binding.detailEmployeeEmail.setText("Email: "+ dataEmployees.getEmail());
 
@@ -108,9 +107,7 @@ public class DetailEmployee extends AppCompatActivity {
                 public void onMapReady(GoogleMap googleMap) {
                      Double latitude = Double.parseDouble(dataEmployees.getLocation().getCoordinates().getLatitude());
                      Double longitude = Double.parseDouble(dataEmployees.getLocation().getCoordinates().getLongitude());
-                    googleMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(latitude, longitude))
-                            .title(dataEmployees.getLocation().getStreet().getName()));
+                    googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title(dataEmployees.getLocation().getStreet().getName()));
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude),8));
                 }
             });
@@ -119,9 +116,9 @@ public class DetailEmployee extends AppCompatActivity {
 
     private void addDataToDB() {
         String name = binding.detailEmployeeName.getText().toString();
-        String city = binding.detailEmployeeCity.getText().toString();
         String phone = binding.detailEmployeePhone.getText().toString();
         String email = binding.detailEmployeeName.getText().toString();
+        String city = binding.detailEmployeeCity.getText().toString();
         String picture = item.getPicture().getThumbnail().toString();
 
         try {
@@ -146,17 +143,14 @@ public class DetailEmployee extends AppCompatActivity {
                     public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                         if(response.body() != null){
                             dataEmployeesItem = new ArrayList<>();
-
                             if(response.isSuccessful()){
                                 binding.progressDetail.setVisibility(View.GONE);
                                 binding.nestedScroll.setVisibility(View.VISIBLE);
                             }
-
                             if(response.body().getStatusCode() == 200){
                                dataEmployeesItem = response.body().getEmployees();
                                item = response.body().getEmployees().get(0);
                                setAllData(item);
-                               Log.d("Success", "On Response" + item.getName().getFirst());
                             }
                         }else{
                             Toast.makeText(DetailEmployee.this, "Data Not found",Toast.LENGTH_SHORT).show();

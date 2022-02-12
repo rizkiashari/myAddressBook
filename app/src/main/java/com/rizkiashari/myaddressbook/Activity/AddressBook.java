@@ -21,7 +21,7 @@ public class AddressBook extends AppCompatActivity {
     private ActivityAddressBookBinding binding;
 
     Integer id;
-    String name, city, phone, email, picture;
+    String name, city, email, picture, phone;
 
     private List<DataEmployeeEntity> itemEmployee;
     private AdapterAddress adapterAddress;
@@ -54,10 +54,10 @@ public class AddressBook extends AppCompatActivity {
             Cursor cursor = db.rawQuery("SELECT * FROM addressBook", null);
             Integer idDataIdx = cursor.getColumnIndex("id");
             Integer nameDataIdx = cursor.getColumnIndex("name");
-            Integer cityDataIdx = cursor.getColumnIndex("city");
-            Integer phoneDataIdx = cursor.getColumnIndex("phone");
             Integer emailDataIdx = cursor.getColumnIndex("email");
             Integer pictureDataIdx = cursor.getColumnIndex("picture");
+            Integer cityDataIdx = cursor.getColumnIndex("city");
+            Integer phoneDataIdx = cursor.getColumnIndex("phone");
 
             binding.progressAddress.setVisibility(View.GONE);
             binding.rvEmployee.setVisibility(View.VISIBLE);
@@ -65,10 +65,10 @@ public class AddressBook extends AppCompatActivity {
             while (cursor.moveToNext()){
                 id = cursor.getInt(idDataIdx);
                 name = cursor.getString(nameDataIdx);
-                city = cursor.getString(cityDataIdx);
-                phone = cursor.getString(phoneDataIdx);
                 email = cursor.getString(emailDataIdx);
                 picture = cursor.getString(pictureDataIdx);
+                city = cursor.getString(cityDataIdx);
+                phone = cursor.getString(phoneDataIdx);
 
                 DataEmployeeEntity employeeEntity = new DataEmployeeEntity(id,phone,name,city,email,picture);
 
