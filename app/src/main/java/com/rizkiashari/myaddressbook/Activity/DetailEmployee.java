@@ -136,6 +136,7 @@ public class DetailEmployee extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
+
     }
 
     private void getDataEmployeeDetail() {
@@ -145,11 +146,17 @@ public class DetailEmployee extends AppCompatActivity {
                     public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                         if(response.body() != null){
                             dataEmployeesItem = new ArrayList<>();
+
+                            if(response.isSuccessful()){
+                                binding.progressDetail.setVisibility(View.GONE);
+                                binding.nestedScroll.setVisibility(View.VISIBLE);
+                            }
+
                             if(response.body().getStatusCode() == 200){
                                dataEmployeesItem = response.body().getEmployees();
                                item = response.body().getEmployees().get(0);
                                setAllData(item);
-                                Log.d("Success", "On Response" + item.getName().getFirst());
+                               Log.d("Success", "On Response" + item.getName().getFirst());
                             }
                         }
                     }

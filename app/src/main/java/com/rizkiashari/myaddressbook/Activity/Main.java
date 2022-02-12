@@ -63,6 +63,11 @@ public class Main extends AppCompatActivity implements AdapterList.OnItemClickCa
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if(response.body() != null){
+
+                    if(response.isSuccessful()){
+                        binding.rvEmployee.setVisibility(View.VISIBLE);
+                        binding.progressMain.setVisibility(View.GONE);
+                    }
                     if(response.body().getStatusCode() == 200){
                         listEmployee = response.body().getEmployees();
                         initRvData();

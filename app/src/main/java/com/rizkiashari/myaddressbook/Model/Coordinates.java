@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Coordinates {
 
-    @SerializedName("latitide")
+    @SerializedName("latitude")
     private String latitude;
 
     @SerializedName("longitude")
