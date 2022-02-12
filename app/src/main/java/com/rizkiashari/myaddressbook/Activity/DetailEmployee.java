@@ -158,6 +158,8 @@ public class DetailEmployee extends AppCompatActivity {
                                setAllData(item);
                                Log.d("Success", "On Response" + item.getName().getFirst());
                             }
+                        }else{
+                            Toast.makeText(DetailEmployee.this, "Data Not found",Toast.LENGTH_SHORT).show();
                         }
                     }
 

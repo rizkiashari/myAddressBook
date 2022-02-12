@@ -10,7 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearAddress"
+        >
+
         <ImageView
             android:layout_width="28dp"
             android:layout_height="28dp"
@@ -40,9 +43,14 @@
                     android:text="My Address Book"
                     />
             </LinearLayout>
-
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/progressAddress"
+                />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_employee"
+                android:visibility="gone"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

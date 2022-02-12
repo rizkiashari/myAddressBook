@@ -59,6 +59,9 @@ public class AddressBook extends AppCompatActivity {
             Integer emailDataIdx = cursor.getColumnIndex("email");
             Integer pictureDataIdx = cursor.getColumnIndex("picture");
 
+            binding.progressAddress.setVisibility(View.GONE);
+            binding.rvEmployee.setVisibility(View.VISIBLE);
+
             while (cursor.moveToNext()){
                 id = cursor.getInt(idDataIdx);
                 name = cursor.getString(nameDataIdx);

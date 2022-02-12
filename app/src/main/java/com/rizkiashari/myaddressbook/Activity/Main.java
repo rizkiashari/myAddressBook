@@ -63,7 +63,6 @@ public class Main extends AppCompatActivity implements AdapterList.OnItemClickCa
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if(response.body() != null){
-
                     if(response.isSuccessful()){
                         binding.rvEmployee.setVisibility(View.VISIBLE);
                         binding.progressMain.setVisibility(View.GONE);
@@ -72,6 +71,8 @@ public class Main extends AppCompatActivity implements AdapterList.OnItemClickCa
                         listEmployee = response.body().getEmployees();
                         initRvData();
                     }
+                }else{
+                    Toast.makeText(Main.this, "Data Not found",Toast.LENGTH_SHORT).show();
                 }
             }
 

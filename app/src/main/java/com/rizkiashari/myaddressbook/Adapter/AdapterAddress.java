@@ -56,7 +56,7 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.ViewHold
         holder.binding.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tell:" + item.getPhone()));
+                Intent goCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + item.getPhone()));
                 holder.itemView.getContext().startActivity(goCall);
             }
         });
