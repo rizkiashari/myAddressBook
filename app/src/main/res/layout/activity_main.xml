@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/btn_allBook"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="35dp"
             android:gravity="right"
             android:text="All Book"
             android:textSize="20dp"

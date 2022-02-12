@@ -4,6 +4,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class DataEmployees {
 
+    public DataEmployees(Integer employeeId, String phone, Name name, Location location, String email, Picture picture){
+        this.employeeId = employeeId;
+        this.phone = phone;
+        this.name = name;
+        this.location = location;
+        this.email = email;
+        this.picture = picture;
+    }
+
     @SerializedName("employeeId")
     private Integer employeeId;
 

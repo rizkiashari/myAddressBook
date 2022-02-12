@@ -52,17 +52,17 @@
                 android:id="@+id/cityEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="City: "/>
+                tools:text="City"/>
             <TextView
                 android:id="@+id/phoneEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Phone: "/>
+                tools:text="Phone"/>
             <TextView
                 android:id="@+id/dateEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Member since: "/>
+                tools:text="Member since"/>
 
         </LinearLayout>
 
