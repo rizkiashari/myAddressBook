@@ -130,6 +130,8 @@ public class DetailEmployee extends AppCompatActivity {
             sqLiteStatement.bindString(4, email);
             sqLiteStatement.bindString(5, picture);
             sqLiteStatement.execute();
+
+            Toast.makeText(DetailEmployee.this, "Add Employee Success", Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
         }
