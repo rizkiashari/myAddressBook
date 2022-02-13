@@ -115,7 +115,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.ViewHolder> im
 
         holder.binding.nameEmployee.setText(item.getName().getFirst() + " " + item.getName().getLast());
         holder.binding.cityEmployee.setText("City: "+item.getLocation().getCity());
-        holder.binding.phoneEmployee.setText("Phone" +item.getPhone());
+        holder.binding.phoneEmployee.setText("Phone: " +item.getPhone());
         holder.binding.dateEmployee.setText("Member Since: "+month + " " + year);
         Glide.with(holder.itemView.getContext())
                 .load(item.getPicture().getThumbnail())
