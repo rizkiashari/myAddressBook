@@ -113,7 +113,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.ViewHolder> im
         String month = memberSince[1];
         String year = memberSince[2];
 
-        holder.binding.nameEmployee.setText("Name: "+item.getName().getFirst() + " " + item.getName().getLast());
+        holder.binding.nameEmployee.setText(item.getName().getFirst() + " " + item.getName().getLast());
         holder.binding.cityEmployee.setText("City: "+item.getLocation().getCity());
         holder.binding.phoneEmployee.setText("Phone" +item.getPhone());
         holder.binding.dateEmployee.setText("Member Since: "+month + " " + year);
