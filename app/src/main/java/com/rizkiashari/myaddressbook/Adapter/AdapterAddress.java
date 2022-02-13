@@ -26,10 +26,6 @@ public class AdapterAddress extends RecyclerView.Adapter<AdapterAddress.ViewHold
         this.itemSelected = item;
     }
 
-    public interface OnItemClickCallback {
-        void onItemClicked(int id);
-    }
-
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private  final ItemAddressBinding binding;
 

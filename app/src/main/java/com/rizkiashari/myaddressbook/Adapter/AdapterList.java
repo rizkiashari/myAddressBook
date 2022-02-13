@@ -14,6 +14,9 @@ import com.rizkiashari.myaddressbook.Model.DataEmployees;
 import com.rizkiashari.myaddressbook.R;
 import com.rizkiashari.myaddressbook.databinding.ItemEmployeeBinding;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -86,10 +89,34 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.ViewHolder> im
     @Override
     public void onBindViewHolder(@NonNull AdapterList.ViewHolder holder, int position) {
         final DataEmployees item = itemSelected.get(position);
-        holder.binding.nameEmployee.setText(item.getName().getFirst() + " " + item.getName().getLast());
-        holder.binding.cityEmployee.setText(item.getLocation().getCity());
-        holder.binding.phoneEmployee.setText(item.getPhone());
-        holder.binding.dateEmployee.setText(item.getRegistered().getDate());
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date = null;
+
+        Locale locale = new Locale("en", "EN");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MMMM-yyyy", locale);
+
+        String currDate = item.getRegistered().getDate();
+        String[] splitDate = currDate.split("T");
+        String dateRegistered = splitDate[0];
+
+        String tempDate = dateRegistered;
+
+        try {
+            date = dateFormat.parse(tempDate);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        String dateFormatResult = format.format(date.getTime());
+        String [] memberSince = dateFormatResult.split("-");
+        String month = memberSince[1];
+        String year = memberSince[2];
+
+        holder.binding.nameEmployee.setText("Name: "+item.getName().getFirst() + " " + item.getName().getLast());
+        holder.binding.cityEmployee.setText("City: "+item.getLocation().getCity());
+        holder.binding.phoneEmployee.setText("Phone" +item.getPhone());
+        holder.binding.dateEmployee.setText("Member Since: "+month + " " + year);
         Glide.with(holder.itemView.getContext())
                 .load(item.getPicture().getThumbnail())
                 .into(holder.binding.pictureEmployee);
